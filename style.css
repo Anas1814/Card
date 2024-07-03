@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+
+:root{
+    --Red: hsl(0, 100%, 66%);
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);   
+    --light-blue: hsl(249, 99%, 64%);
+}
+
+*,*>*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+}
+.error{
+    border: 2px solid var(red);
+}
+.error-message{
+    gap: 0;
+}
+.error-message::after{
+    content: "can't be blank";
+    color: var(--Red);
+    margin: .2rem;
+}
+.container{
+    display: flex;
+    align-items: center;
+}
+.left-section{
+    min-height: 100vh;
+    width: 45%;
+    background-image: url(./images/bg-main-desktop.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    gap: 2rem;
+    transform: translate(-50%,-50%);
+}
+.front-card{
+    position: relative;
+    transform: translateX(-100px);
+}
+.card-logo{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+#number{
+    position: absolute;
+    color: var(--white);
+    bottom: 5rem;
+    left: 1rem;
+    letter-spacing: 2px;
+}
+.card-info{
+    display: flex;
+    color: var(--white);
+    position: absolute;
+    bottom: 2rem;
+    left: 1rem;
+    right: 3rem;
+    justify-content: space-between;
+}
+.back-card{
+    position: relative;
+}
+#cvc{
+    position: absolute;
+    right: 3.5rem;
+    top: 7rem;
+    color: var(--light-grayish-violet);
+}
+.right-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 100px;
+}
+.right-section form{
+    display: grid;
+    gap: 1rem;
+    width: 350px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+}
+label{
+    color: var(--very-dark-violet);
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+}
+.input-1{
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 span;
+}
+.input-2{
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 span;
+}
+
+.input-4{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 span;
+}
+.card-information{
+    display: flex;
+    gap: 1rem;
+}
+#card-date{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 span;
+}
+#card-date .two-inp{
+    display: flex;
+}
+.two-inp div{
+    flex-direction: column;
+}
+#card-date div input{
+    width: 70px;
+    margin-inline: .5rem;
+    margin-left: 0;
+}
+#card-cvc{
+    width: 100%;
+}
+
+input{
+    padding: .5rem;
+    font-size: 18px;
+    border: 1px solid var(--dark-grayish-violet);
+    border-radius: 6px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input::placeholder{
+    font-family: inherit;
+    color: var(--dark-grayish-violet);
+}
+input:focus{
+    outline-color: var(--light-blue) ;
+}
+form button{
+    grid-column: 2 span;
+    font-size: 18px;
+    height: 50px;
+    color: var(--white);
+    border-radius: 6px;
+    background-color: var(--very-dark-violet);
+    cursor: pointer;
+}
+.thank{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.thank h1{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.thank p{
+    font-size: 18px;
+    color: var(--dark-grayish-violet);
+}
+.thank button{
+    width: 100%;
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 18px;
+    background-color: var(--very-dark-violet);
+    color: white;
+    cursor: pointer;
+}
+.hidden{
+    display: none !important;
+}
+
+@media screen and (max-width:1023px){
+    .front-card,
+    .front-card img,
+    .back-card,
+    .back-card img{
+        width: 300px;
+    }
+    .card-container
+    .card-logo{
+        width: 50px;
+    }
+    #number{
+        font-size: 1.1rem;
+    }
+    #cvc{
+        top: 42%;
+        right: 12%;
+
+    }
+}
+@media screen and (max-width:767px){
+    .container{
+        flex-direction: column;
+    }
+    .front-card,
+    .front-card img,
+    .back-card,
+    .back-card img{
+        width: 280px;
+    }
+    .left-section{
+        width: 100%;
+        min-height: 30vh;
+        align-items: center;
+        justify-content: center;
+        background-image: url(./images/bg-main-mobile.png);
+    }
+    .cards{
+        flex-direction: column-reverse;
+        left: 61%;
+        top: 60%;
+        gap: 0;
+    }
+    .back-card{
+        transform: translateY(70px);
+        right: 10px;
+    }
+    .front-card{
+        z-index: 100;
+        left: 25px;
+    }
+    .right-section{
+        margin-top: 6rem;
+        margin-right: 100px;
+    }
+    #number{
+        margin-bottom: -25px; 
+    }
+    .card-info{
+        margin-bottom: -10px;
+        font-size: .9rem;
+    }
+    #date{
+        margin-right: -20px;
+    }
+    
+}
